@@ -16,6 +16,39 @@ const quizData = [
     }
 ];
 
+const questions = [{
+    name: "Where is the Eiffel Tower?", answer: "2", 
+    options: [{title: 'Italy'}, {title: 'Russia'}, {title: 'Paris'}, {title: 'Canada'}]
+},
+ {name: "What is the capital of the U.S.A?", answer: "2", 
+    options: [{title: 'L.A'}, {title: 'Harrisburg'}, {title: 'Washington D.C'}, {title: 'Texas'}]
+},
+ {name: "which of these is an animal?", answer: "3", 
+    options: [{title: 'Marker'}, {title: 'Computer'}, {title: 'Lion'}, {title: 'Desk'}]
+},
+{name: "What color is the sky?", answer: "0", 
+    options: [{title: 'Blue'}, {title: 'Red'}, {title: 'Pink'}, {title: 'Apple'}]
+},
+{name: "Where is chinese the official language in?", answer: "1", 
+    options: [{title: 'Japan'}, {title: 'China'}, {title: 'America'}, {title: 'Russia'}]
+},
+{name: "Who was the first president of the U.S?", answer: "0", 
+    options: [{title: 'George Washington'}, {title: 'George Bush'}, {title: 'Donald Trump'}, {title: 'Joe Biden'}]
+},
+{name: "What phone brand has a bitten fruit logo?", answer: "1", 
+    options: [{title: 'HP'}, {title: 'Apple'}, {title: 'Galaxy'}, {title: 'Google pixel'}]
+},
+{name: "What is the name of your CSET teacher", answer: "3", 
+    options: [{title: 'Mister'}, {title: 'Mr. Stevens'}, {title: 'Mr. Christopher'}, {title: 'Mr. Chowdhury'}]
+},
+{name: "What animal is considered a humans best friend?", answer: "0", 
+    options: [{title: 'Dog'}, {title: 'Gorilla'}, {title: 'Hippo'}, {title: 'Mermaid'}]
+},
+{name: "What is the name of your College?", answer: "2", 
+    options: [{title: 'Texas University'}, {title: 'Penn State College'}, {title: 'Thaddeus Stevens College of Technology'}, {title: 'Harvard University'}]
+},
+    ];
+
 let currentIndex = 0;
 let score = 0;
 
@@ -35,134 +68,3 @@ function startQuiz() {
         `;
     });
 }
-
-
-
-
-
-// const quizContainer = document.getElementById('.quiz');
-// const submitElement = document.getElementById('submit');
-// const resultsContainer = document.getElementById('results');
-
-// if(document.readyState == 'loading'){
-//     document.addEventListener(DOMReadyState == 'loaded', buildQuiz);
-// }
-// else{
-//     buildQuiz();
-// }
-
-// function buildQuiz(){
-//     let output = [];
-
-//     questions.forEach(
-//         (currentQuestion, questionNumber) => {
-            
-//             const answers = [];
-
-//             for(letter in currentQuestion.answers){
-
-//                 answers.push(
-//                     `<label>
-//                     <input type="radio" name="question${questionNumber} value="${letter}">
-//                     ${letter} : 
-//                     ${currentQuestion.answers[title]}
-//                     </label>`
-//                 );
-//             }
-
-//             output.push(
-//                 `<div class ="question"> ${currentQuestion.question} </div>
-//                 <div class="answers"> ${answers.join('')} </div>`
-//             );
-//         }
-//     );
-
-//     // quizContainer.innerHTML = output.join('');
-// }
-
-// function showResults(){
-//     const answerContainers = quizContainer.querySelectorAll('.answers');
-//     let numCorrect = 0;
-//     questions.forEach( (currentQuestion, questionNumber) => {
-//         const answerContainer = answerContainers[questionNumber];
-//         let selector = `input[name=question${questionNumber}]:checked`;
-//         let userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-//         if(userAnswer === currentQuestion.answer){
-//             numCorrect++;
-//             answerContainers[questionNumber].style.color = 'lightgreen';
-//         }
-//         else{
-//             answerContainers[questionNumber].style.color = 'red';
-//         }
-//     });
-//     resultsContainer.innerHTML = `${numCorrect} out of ${questions.length}`;
-// };
-
-
-// // let current = 0;
-// // let submitted = false;
-
-// // function showQuestions (){
-// //     submitted = false;
-
-// //     submitElement.removeEventListener('click', handleSubmit);
-
-// //     let question = questions[currentQuestion];
-
-// //     quizElement.innerHTML = `
-// //     <h2>${question.name}</h2>
-// //     <form id="myForm">
-// //         <input type="radio" id="0" name="option" value="0">
-// //         <label for="0">${qestion.options[0].title}</label>
-// //         <br>
-
-// //         <input type="radio" id="1" name="option" value="1">
-// //         <label for="0">${qestion.options[1].title}</label>
-// //         <br>
-
-// //         <input type="radio" id="2" name="option" value="2">
-// //         <label for="0">${qestion.options[2].title}</label>
-// //         <br>
-
-// //         <input type="radio" id="3" name="option" value="3">
-// //         <label for="0">${qestion.options[3].title}</label>
-// //         <br>
-
-// //         <p id="message"></p>
-
-// //         <button id="submit">Submit</button>
-// //         `;
-
-// //     submitElement.addEventListener('click', handleSubmit);
-// // }
-
-// // function handleSubmit(event){
-// //     event.preventDefault()
-
-// //     let message = documen.getElementById('message');
-// //     let answer = document.querySelector('input[name="option"]:checked');
-
-// //     if(!answer){
-// //         message.innerHTML = 'Please select an answer.'
-// //         return;
-// //     }
-
-// //     let question = questions[currentQuestion];
-// //     let correctAnswer = question.answer;
-// //     let userAnswer = answer.value
-
-// //     if(correctAnswer === userAnswer){
-
-// //     }
-// //     else{
-
-// //     }
-
-// //     document.getElementById('0').disabled = true;
-// //     document.getElementById('1').disabled = true;
-// //     document.getElementById('2').disabled = true;
-// //     document.getElementById('3').disabled = true;
-
-// //     submitted = true;
-// // };
