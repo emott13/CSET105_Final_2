@@ -18,8 +18,7 @@ display: flex;
 }
 
 #submitBtn{
-margin-top: 50px;
-margin-bottom: 15px;
+margin-top: 40px;
 display: flex;
 width: 130px;
 height: 30px;
@@ -33,7 +32,7 @@ align-items: center;
 }
 
 #submitBtn:hover{
-    background-color:  rgb(49, 107, 44);
+    background-color:  rgb(128, 156, 98);
     color: whitesmoke;
 }
 
@@ -75,6 +74,8 @@ align-items: start;
 }
 
 .center{
+    border: solid, white, 5px;
+    border-radius: 25px;
     margin-top: 100px;
     align-items: center;
     background-color: rgba(203, 199, 199, 0.829);
