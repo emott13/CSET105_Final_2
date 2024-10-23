@@ -1,116 +1,106 @@
-
-// const questions = [{
-//     name: "Where is the Eiffel Tower?", answer: "2", 
-//     options: [{title: 'Italy'}, {title: 'Russia'}, {title: 'Paris'}, {title: 'Canada'}]
-// },
-//  {name: "What is the capital of the U.S.A?", answer: "2", 
-//     options: [{title: 'L.A'}, {title: 'Harrisburg'}, {title: 'Washington D.C'}, {title: 'Texas'}]
-// },
-//  {name: "which of these is an animal?", answer: "3", 
-//     options: [{title: 'Marker'}, {title: 'Computer'}, {title: 'Lion'}, {title: 'Desk'}]
-// },
-// {name: "What color is the sky?", answer: "0", 
-//     options: [{title: 'Blue'}, {title: 'Red'}, {title: 'Pink'}, {title: 'Apple'}]
-// },
-// {name: "Where is chinese the official language in?", answer: "1", 
-//     options: [{title: 'Japan'}, {title: 'China'}, {title: 'America'}, {title: 'Russia'}]
-// },
-// {name: "Who was the first president of the U.S?", answer: "0", 
-//     options: [{title: 'George Washington'}, {title: 'George Bush'}, {title: 'Donald Trump'}, {title: 'Joe Biden'}]
-// },
-// {name: "What phone brand has a bitten fruit logo?", answer: "1", 
-//     options: [{title: 'HP'}, {title: 'Apple'}, {title: 'Galaxy'}, {title: 'Google pixel'}]
-// },
-// {name: "What is the name of your CSET teacher", answer: "3", 
-//     options: [{title: 'Mister'}, {title: 'Mr. Stevens'}, {title: 'Mr. Christopher'}, {title: 'Mr. Chowdhury'}]
-// },
-// {name: "What animal is considered a humans best friend?", answer: "0", 
-//     options: [{title: 'Dog'}, {title: 'Gorilla'}, {title: 'Hippo'}, {title: 'Mermaid'}]
-// },
-// {name: "What is the name of your College?", answer: "2", 
-//     options: [{title: 'Texas University'}, {title: 'Penn State College'}, {title: 'Thaddeus Stevens College of Technology'}, {title: 'Harvard University'}]
-// },
-//     ];
-
-var question1 = ["Where is the Eiffel Tower"];
-var choice1 = [
-    "<input onclick='correct1()' name='button1' type='radio' /> paris<br />" +
-    "<input onclick='incorrect1()' name='button1' type='radio' /> LA<br />"+
-    "<input onclick='incorrect1()' name='button1' type='radio' /> texas<br />"+
-     "<input onclick='incorrect1()' name='button1' type='radio' /> russia<br />"
+const quizData = [
+    {
+        question: "Where is the Eiffel Tower?", 
+        options: ['Italy', 'Russia', 'Paris', 'Canada'], 
+        answer: "Paris",
+    },
+    {
+        question: "What is the capital of the U.S.A?",
+        options: ["L.A", "Harrisburg", "Washington D.C.", "Texas"],
+        answer: "Washington D.C."
+    },
+    {
+        question: "Which of these is an animal?",
+        options: ['Marker', 'Computer', 'Lion', 'Desk'],
+        answer: "Lion", 
+    },
+    {
+        question: "What color is the sky?",
+        options: ['Blue', 'Red', 'Pink', 'Apple'],
+        answer: "Blue", 
+    },
+    {
+        question: "In what country is Mandarin the official language?",
+        options: ['Japan', 'Russia', 'America', 'China'],
+        answer: "China", 
+    },
+    {
+        question: "Who was the first president of the U.S?",
+        options: ['George Washington', 'George Bush', 'Abraham Lincoln', 'John Adams'],
+        answer: "George Washington", 
+    },
+    {
+        question: "What brand has a bitten fruit logo?",
+        options: ['HP', 'Apple', 'Galaxy', 'Google pixel'],
+        answer: "Apple", 
+    },
+    {
+        question: "What is the name of the morning CSET teacher",
+        options: ['Mr. Hoffman', 'Mr. Stevens', 'Mr. Christopher', 'Mr. Chowdhury'],
+        answer: "Mr. Chowdhury", 
+    },
+    {
+        question: "What animal is considered a human's best friend?",
+        options: ['Dog', 'Gorilla', 'Hippo', 'Mermaid'],
+        answer: "Dog", 
+    },
+    {
+        question: "What is the name of your College?",
+        options: ['Texas University', 'Penn State College', 'Thaddeus Stevens College of Technology', 'Harvard University'],
+        answer: "Thaddeus Stevens College of Technology", 
+    },
 ];
 
-var question2 = ["What is the capital of the U.S.A?"];
-var choice2 = [
-    "<input onclick='correct2()' name='button2' type='radio' />Washington D.C<br />" +
-    "<input onclick='incorrect2()' name='button2' type='radio' />Harrisburg<br />" +
-    "<input onclick='incorrect2()' name='button2' type='radio' />Los Angeles<br />" +
-    "<input onclick='incorrect2()' name='button2' type='radio' />Philadelphia<br />" 
-];
+let currentIndex = 0;
+let score = 0;
 
-var question3 = ["which of these is an animal?"];
-var choice3 = [
-    "<input onclick='correct3()' name='button3' type='radio' /> Cat<br />" +
-    "<input onclick='incorrect3()' name='button3' type='radio' />Apple<br />"+
-    "<input onclick='incorrect3()' name='button3' type='radio' />sky<br />"+
-    "<input onclick='incorrect3()' name='button3' type='radio' />computer<br />"
-];
+function startQuiz() {
+    let currentQuestion = quizData[currentIndex];
+    document.getElementById("question").innerText = currentQuestion.question;
 
-var a, b, c, z;
+    let optionsContainer = document.getElementById("options");
+    optionsContainer.innerHTML = "";
 
-window.onload = function() {
-    a = 0;
-    document.getElementById('message1').innerHTML = question1;
-    document.getElementById('option1').innerHTML = choice1;
-    document.getElementById('click1').innerHTML = "<button onclick='set2()'>next</button>";
+    currentQuestion.options.forEach((option, index) => {
+        optionsContainer.innerHTML += `
+            <div>
+                <input type="radio" name="option" id="option${index}" value="${option}">
+                <label for="option${index}">${option}</label>
+            </div>
+        `;
+    });
 }
 
-function correct1() {
-    a = 1;
+function submit(){
+    let choice = document.querySelector('input[name="option"]:checked');
+    if(!choice){                                                                //keeps quiz from moving forward without selecting an option
+        return;
+    }
+    
+    let answer = choice.value;
+    if(answer === quizData[currentIndex].answer){
+        score++;
+    }
+
+    let optionsContainer = document.getElementById("options");
+    currentIndex++;
+    if(currentIndex < quizData.length){
+        startQuiz();
+    }
+    else{
+        optionsContainer.innerHTML = '';
+        document.getElementById("question").innerText = `Your score is ${score} out of 10`;
+        currentIndex = 0;
+
+        let restart = document.getElementsByClassName('restart')[0];
+        restart.innerText = 'Restart'
+        restart.addEventListener('click', restartQuiz)
+    }
 }
 
-function incorrect1() {
-    a = 0;
+function restartQuiz(){
+    location.reload()
 }
 
-function set2() {
-    b = 0;
-    document.getElementById('message1').innerHTML = question2;
-    document.getElementById('option1').innerHTML = choice2;
-    document.getElementById('click1').innerHTML = "<button onclick='set3()'>Next</button>";
-}
-
-function correct2() {
-    b = 1;
-}
-
-function incorrect2() {
-    b = 0;
-}
-
-function set3() {
-    c = 0;
-    document.getElementById('message1').innerHTML = question3;
-    document.getElementById('option1').innerHTML = choice3; 
-    document.getElementById('click1').innerHTML = "<button onclick='result1()'>Score</button>";
-}
-
-function correct3() {
-    c = 1;
-}
-
-function incorrect3() {
-    c = 0;
-}
-
-function result1() {
-    z = a + b + c;
-    document.getElementById('message1').innerHTML = "End of Quiz";
-    document.getElementById('option1').innerHTML = ""; 
-    document.getElementById('comment1').innerHTML = "Your score is: " + z; 
-    document.getElementById('click1').innerHTML = "<button onclick='repeat1()'>Repeat</button>";
-}
-
-function repeat1() {
-    location.reload();
-}
+document.getElementById("submitBtn").addEventListener('click', submit)
+startQuiz();
