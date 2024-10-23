@@ -10,7 +10,7 @@ const quizData = [
         answer: "Washington D.C."
     },
     {
-        question: "which of these is an animal?",
+        question: "Which of these is an animal?",
         options: ['Marker', 'Computer', 'Lion', 'Desk'],
         answer: "Lion", 
     },
@@ -27,7 +27,7 @@ const quizData = [
     {
         question: "Who was the first president of the U.S?",
         options: ['George Washington', 'George Bush', 'Abraham Lincoln', 'John Adams'],
-        answer: "Blue", 
+        answer: "George Washington", 
     },
     {
         question: "What brand has a bitten fruit logo?",
@@ -36,11 +36,11 @@ const quizData = [
     },
     {
         question: "What is the name of the morning CSET teacher",
-        options: ['Mister', 'Mr. Stevens', 'Mr. Christopher', 'Mr. Chowdhury'],
+        options: ['Mr. Hoffman', 'Mr. Stevens', 'Mr. Christopher', 'Mr. Chowdhury'],
         answer: "Mr. Chowdhury", 
     },
     {
-        question: "What animal is considered a humans best friend?",
+        question: "What animal is considered a human's best friend?",
         options: ['Dog', 'Gorilla', 'Hippo', 'Mermaid'],
         answer: "Dog", 
     },
@@ -70,3 +70,37 @@ function startQuiz() {
         `;
     });
 }
+
+function submit(){
+    let choice = document.querySelector('input[name="option"]:checked');
+    if(!choice){                                                                //keeps quiz from moving forward without selecting an option
+        return;
+    }
+    
+    let answer = choice.value;
+    if(answer === quizData[currentIndex].answer){
+        score++;
+    }
+
+    let optionsContainer = document.getElementById("options");
+    currentIndex++;
+    if(currentIndex < quizData.length){
+        startQuiz();
+    }
+    else{
+        optionsContainer.innerHTML = '';
+        document.getElementById("question").innerText = `Your score is ${score} out of 10`;
+        currentIndex = 0;
+
+        let restart = document.getElementsByClassName('restart')[0];
+        restart.innerText = 'Restart'
+        restart.addEventListener('click', restartQuiz)
+    }
+}
+
+function restartQuiz(){
+    location.reload()
+}
+
+document.getElementById("submitBtn").addEventListener('click', submit)
+startQuiz();
