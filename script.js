@@ -1,53 +1,55 @@
 const quizData = [
     {
-        question: "What is the capital of France?",
-        options: ["Berlin", "Madrid", "Paris", "Lisbon"],
-        answer: "Paris"
+        question: "Where is the Eiffel Tower?", 
+        options: ['Italy', 'Russia', 'Paris', 'Canada'], 
+        answer: "Paris",
     },
     {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Mars", "Jupiter", "Saturn"],
-        answer: "Mars"
+        question: "What is the capital of the U.S.A?",
+        options: ["L.A", "Harrisburg", "Washington D.C.", "Texas"],
+        answer: "Washington D.C."
     },
     {
-        question: "What is the largest ocean on Earth?",
-        options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-        answer: "Pacific Ocean"
-    }
+        question: "which of these is an animal?",
+        options: ['Marker', 'Computer', 'Lion', 'Desk'],
+        answer: "Lion", 
+    },
+    {
+        question: "What color is the sky?",
+        options: ['Blue', 'Red', 'Pink', 'Apple'],
+        answer: "Blue", 
+    },
+    {
+        question: "In what country is Mandarin the official language?",
+        options: ['Japan', 'Russia', 'America', 'China'],
+        answer: "China", 
+    },
+    {
+        question: "Who was the first president of the U.S?",
+        options: ['George Washington', 'George Bush', 'Abraham Lincoln', 'John Adams'],
+        answer: "Blue", 
+    },
+    {
+        question: "What brand has a bitten fruit logo?",
+        options: ['HP', 'Apple', 'Galaxy', 'Google pixel'],
+        answer: "Apple", 
+    },
+    {
+        question: "What is the name of the morning CSET teacher",
+        options: ['Mister', 'Mr. Stevens', 'Mr. Christopher', 'Mr. Chowdhury'],
+        answer: "Mr. Chowdhury", 
+    },
+    {
+        question: "What animal is considered a humans best friend?",
+        options: ['Dog', 'Gorilla', 'Hippo', 'Mermaid'],
+        answer: "Dog", 
+    },
+    {
+        question: "What is the name of your College?",
+        options: ['Texas University', 'Penn State College', 'Thaddeus Stevens College of Technology', 'Harvard University'],
+        answer: "Thaddeus Stevens College of Technology", 
+    },
 ];
-
-const questions = [{
-    name: "Where is the Eiffel Tower?", answer: "2", 
-    options: [{title: 'Italy'}, {title: 'Russia'}, {title: 'Paris'}, {title: 'Canada'}]
-},
- {name: "What is the capital of the U.S.A?", answer: "2", 
-    options: [{title: 'L.A'}, {title: 'Harrisburg'}, {title: 'Washington D.C'}, {title: 'Texas'}]
-},
- {name: "which of these is an animal?", answer: "3", 
-    options: [{title: 'Marker'}, {title: 'Computer'}, {title: 'Lion'}, {title: 'Desk'}]
-},
-{name: "What color is the sky?", answer: "0", 
-    options: [{title: 'Blue'}, {title: 'Red'}, {title: 'Pink'}, {title: 'Apple'}]
-},
-{name: "Where is chinese the official language in?", answer: "1", 
-    options: [{title: 'Japan'}, {title: 'China'}, {title: 'America'}, {title: 'Russia'}]
-},
-{name: "Who was the first president of the U.S?", answer: "0", 
-    options: [{title: 'George Washington'}, {title: 'George Bush'}, {title: 'Donald Trump'}, {title: 'Joe Biden'}]
-},
-{name: "What phone brand has a bitten fruit logo?", answer: "1", 
-    options: [{title: 'HP'}, {title: 'Apple'}, {title: 'Galaxy'}, {title: 'Google pixel'}]
-},
-{name: "What is the name of your CSET teacher", answer: "3", 
-    options: [{title: 'Mister'}, {title: 'Mr. Stevens'}, {title: 'Mr. Christopher'}, {title: 'Mr. Chowdhury'}]
-},
-{name: "What animal is considered a humans best friend?", answer: "0", 
-    options: [{title: 'Dog'}, {title: 'Gorilla'}, {title: 'Hippo'}, {title: 'Mermaid'}]
-},
-{name: "What is the name of your College?", answer: "2", 
-    options: [{title: 'Texas University'}, {title: 'Penn State College'}, {title: 'Thaddeus Stevens College of Technology'}, {title: 'Harvard University'}]
-},
-    ];
 
 let currentIndex = 0;
 let score = 0;
