@@ -46,8 +46,8 @@ const quizData = [
     },
     {
         question: "What is the name of your College?",
-        options: ['Texas University', 'Penn State College', 'Thaddeus Stevens College of Technology', 'Harvard University'],
-        answer: "Thaddeus Stevens College of Technology", 
+        options: ['Texas University', 'Penn State College', 'Thaddeus Stevens CoT', 'Harvard University'],
+        answer: "Thaddeus Stevens CoT", 
     },
 ];
 
